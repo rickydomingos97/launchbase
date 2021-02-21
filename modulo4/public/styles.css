@@ -1,230 +1,62 @@
-@import "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600;700&display=swap";
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&display=swap');
 
 :root {
-    --color-green: #50fa7b;
-    --color-green-hover: #1e756a;
-    --color-white: #fff;
-    --color-dark-gray: #3333;
-    --color-featured: rgb(31, 29, 49);
-    --color-background-gray: rgb(0, 0, 0, 0.1);
-    --color-rocket: #7159c1;
-
-
-
+    --primary-color: #7159c1;
+    --white: white;
 }
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
+/* BOX MODEL - PADDING, BORDER, MARGIN */
+ * {
+     margin: 0;
+     padding: 0;
+     border: none;
+ }
 
 body {
-    background: #282a36;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color);
 }
 
 header {
-    padding: 30px;
-    border-bottom: 1px solid var(--color-dark-gray);
-    background: var(--color-background-gray)
+    background-color: var(--white);
+    width: 100%;
+    padding: 3.2rem;
+    text-align: center;
+    box-sizing: border-box; /* PARA RESPITAR OS 100% DA LARGURA DO BOX-MODEL */
 }
 
 .links {
-    text-align: center;
+    font-size: 22px;
 }
 
-.links a {
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 28px;
-    /*dica por 10px acima do font-size*/
-    margin: 0 16px;
+/* a + a  PEGA O SEGUNDO LINK E APLICA SOMENTE NELE E NAO NO PRIMEIRO LINK*/
+/* PODE SER APLICADO SE TIVERMOS MAIS LINKS PARA POR O ESCACO SOMENTE ENTRE OS LINKS*/
+.links a + a {
+    margin-left: 32px;
+ 
+}
+
+.links a { 
     text-decoration: none;
-    cursor: pointer;
+    color: #777;
+    position: relative; /* PARA APLICAR OS AJUSTES NO FILHO A::AFTER */
+}
+
+.links a.active {
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
 .links a:hover {
-    color: var(--color-green);
-    transition: 0.3s
+    color: var(--primary-color);
 }
 
-#wrapper {
-    text-align: center;
-    padding: 32px;
-
-    font-size: 18px;
-    font-weight: 300;
-}
-
-#wrapper img {
-    width: 200px;
-    height: auto;
-    border-radius: 50%;
-    border: 5px solid var(--color-green);
-    margin-bottom: 32px;
-}
-
-#wrapper h1 {
-    font-size: 32px;
-    line-height:42px;
-    font-weight: 700;
-}
-
-#wrapper h2 {
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: normal;
-    margin-top: 8px;
-    opacity: .8;
-}
-
-#wrapper p {
-    max-width: 500px;
-    margin: 32px auto;
-    font-size: 20px;
-    line-height: 30px;
-}
-
-#wrapper a {
-    color: var(--color-green);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#wrapper a:hover {
-    color: var(--color-green-hover);
-    transition: 0.3s;
-}
-
-#links-footer a {
-    border-bottom: 2px solid var(--color-green);
-    padding-bottom: 7px;
-    cursor: pointer;
-}
-
-/* ==== CARDS ==== */
-
-.cards {
-    max-width: 800px;
-    margin: 0 auto;
-    /*a ideia do grid aqui foi pra criar 6 cards com espaçamento entre eles de 20px*/
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    cursor: pointer;
-}
-
-.card {
-    background-color: var(--color-rocket);
-    display: grid;
-}
-
-.card__image-container img {
-    /* Quando usamos 100% ele vai ficar 100% relativo a qualquer elemento maior do que ele*/
+/* DINAMIC HOVER EFFECT APPLY */
+.links a:hover::after {
+    content: "";
     width: 100%;
-}
-
-.card__content,
-.card__info {
-    padding: 24px;
-}
-
-.card__info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;  
-}
-
-.card__price {
-    background-color: var(--color-rocket);
-    filter: brightness(90%);
-    padding: 5px 20px;
-    border-radius:20px;
-    text-align: center;
-}
-
-.modal-overlay {/*vai criar um efeito de opacidade black na tela*/
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 100%;
-    position: fixed;/* vai ficar fixado na tela*/
-    top: 0px;
-    opacity: 0;
-    visibility: hidden;/* para esconder o X do modal-close*/
-}
-
-.modal {
-    background-color: var(--color-white);
-    width: 90%;
-    height: 90%;
-    margin: 5vh auto;
-    position: relative;/* vai fzer o close-modal ficar relativo ao .modal*/
-}
-
-.modal .close-modal {
-    color: #282a36;
-    position: absolute;/* faz o close-modal ser asiluto ao modal*/
-    right: 8px;
-    top: 3px;
-    cursor: pointer;/*faz aparecer aquela maozinha quando passar or cima do X */
-}
-
-/* === MODAL ACTIVE === */
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;/* para tornar visivel o X do modal-close*/
-}
-
-iframe {
-    width: 100%;
-    height: 90%;
+    height: 2px;
+    background-color: var(--primary-color);
     position: absolute;
-    top: 5%;
-}
-
-/* ===== FEATURED =====*/
-.featured-wrapper.card__image-container {
-    position: relative;
-}
-
-
-.featured {
-    background: rgb(253, 141, 12);
-    color: var(--color-featured);
-    padding: 2px 8px;
-    position: absolute;
-    right: 5px;
-    border-radius: 6px;
-    top: -10px;
-}
-
-.notfound {
-    display:flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    padding-top: 4%;
-    background-color: #18161f;
-}
-
-
-/* === VIDEO PAGE === */
-.video {
-    margin: 0px auto;
-    max-width: 800px;
-}
-
-.card__video-container {
-    position: relative;
-    padding-top: 62%;
-}
-
-.card__video-container iframe {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
+    left: 0;
+    bottom: -4px;
 }
