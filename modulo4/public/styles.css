@@ -40,7 +40,7 @@ header {
     color: #777;
     position: relative; /* PARA APLICAR OS AJUSTES NO FILHO A::AFTER */
 }
-
+/*DEIXA O LINK ATUAL EM DESTAQUE */
 .links a.active {
     font-weight: bold;
     color: var(--primary-color);
@@ -50,13 +50,19 @@ header {
     color: var(--primary-color);
 }
 
-/* DINAMIC HOVER EFFECT APPLY */
-.links a:hover::after {
+/* DINAMIC HOVER EFFECT APPLY LEFT TO RIGHT */
+/* COMECA COM 0 WIDTH E DEPOIS PASSA PRA 100% INDO DE LEFT TO0 RIGHT */
+.links a::after {
     content: "";
-    width: 100%;
+    width: 0;
     height: 2px;
     background-color: var(--primary-color);
     position: absolute;
     left: 0;
     bottom: -4px;
+}
+/* define a transicao do underline no hover */
+.links a:hover::after {
+    width: 100%;
+    transition: width 200ms ease-in-out 2ms; /* cubic bezier */
 }
