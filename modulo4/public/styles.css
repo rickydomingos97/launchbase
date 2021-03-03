@@ -14,6 +14,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--primary-color);
+    color: var(--white);
 }
 
 header {
@@ -21,7 +22,7 @@ header {
     width: 100%;
     padding: 3.2rem;
     text-align: center;
-    box-sizing: border-box; /* PARA RESPITAR OS 100% DA LARGURA DO BOX-MODEL */
+    box-sizing: border-box; /* PARA RESPEITAR OS 100% DA LARGURA DO BOX-MODEL */
 }
 
 .links {
@@ -37,7 +38,7 @@ header {
 
 .links a { 
     text-decoration: none;
-    color: #777;
+    color: rgb(170, 167, 167);
     position: relative; /* PARA APLICAR OS AJUSTES NO FILHO A::AFTER */
 }
 /*DEIXA O LINK ATUAL EM DESTAQUE */
