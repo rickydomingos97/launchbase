@@ -71,23 +71,76 @@ header {
 /* === CARD === */
 
 .card {
+
+    color: rgb(63, 62, 62);
     background-color: var(--white);
     width: 800px;
-    height: 400px;
+    min-height: 400px;
 
     margin: 45px auto;
     
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.6);
+
+    animation-name: up;
+    animation-duration: 700ms;
+    animation-timing-function: ease-out;
 }
 
+.avatar {
+    width: 400px;
+}
 .avatar .avatar-img {
     width: 100%;
-    height: auto;
-    background-repeat: repeat;
+    height: 100%;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}
 
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.details {
+    padding: 32px;
+}
+.details .item {
+    color: rgb(29, 29, 29);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+}
+
+.details .item:last-child {
+    border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+    color: #777;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.7px;
+    font-weight: normal;
+
+}
+
+.details .item div:nth-child(2) {
+    color: #555;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--primary-color);
 }

@@ -1,0 +1,4 @@
+#Para arquivos node modules
+node_modules/
+#arquivo package lock
+package-lock.json
