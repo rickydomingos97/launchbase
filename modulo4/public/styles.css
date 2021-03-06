@@ -99,6 +99,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+<<<<<<< Updated upstream
 }
 
 @keyframes up {
@@ -157,4 +158,6 @@ header {
     font-weight: 700;
     text-transform: uppercase;
     font-size: 12px;
+=======
+>>>>>>> Stashed changes
 }
