@@ -76,7 +76,7 @@ header {
     color: rgb(63, 62, 62);
     background-color: var(--white);
     width: 800px;
-    min-height: 400px;
+   /* min-height: 400px;*/
 
     margin: 45px auto;
     
@@ -91,11 +91,11 @@ header {
 }
 
 .avatar {
+    background: url("https://source.unsplash.com/collection/11378740/900x900");
+
     width: 400px;
-}
-.avatar .avatar-img {
-    width: 100%;
-    height: 100%;
+    height: auto;
+
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
