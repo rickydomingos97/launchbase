@@ -1,44 +1,71 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-    <div class="card">
+    <form class="card" method="POST" action="/instructors">
         <section class="avatar">
-            <img class="avatar-img" src="https://source.unsplash.com/collection/4836861/900x900"
-            alt="Avatar">
+            
         </section>
         <section class="details">
-        <h3>Details</h3>
+
+        <h3>Novo Instrutor</h3>
+
+            <div class="item">
+            <div>Avatar URL</div>
+            <div>
+                <input
+                    type="url"
+                    name="avatar_url"
+                    placeholder="http://"
+                >
+            </div>
+        </div>
 
         <div class="item">
             <div>Instructor</div>
-            <div>Ricardo Domingos</div>
+            <div>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Nome do instrutor"
+                >
+            </div>
         </div>
 
                 <div class="item">
-            <div>Age</div>
-            <div>39</div>
-        </div>
-
-        <div class="item">
-            <div>Gender</div>
-            <div>Male</div>
-        </div>
-
-        <div class="item">
-            <div>Skills</div>
+            <div>Data de nascimento</div>
             <div>
-                <span>Musculacao</span>
-                <span>Crossfit</span>
+                <input
+                    type="date"
+                    name="birth"
+                >
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Sexo</div>
+            <div>
+                <span><input type="radio" name="gender" value="M" > Masculino</span>
+                <span><input type="radio" name="gender" value="F" > Feminino</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Area de atuacao</div>
+            <div>
+                <input
+                    type="text"
+                    name="services"
+                    placeholder="Separe os servicos prestados por virgula"
+                >
             </div>
 
-             <div class="item">
-            <div>Since</div>
-            <div>01/01/2021</div>
-        </div>
+            <button type="submit">
+                Salvar
+            </button>
         </div>
         </section>
 
 
-    </div>
+    </form>
 
 {% endblock content %}

@@ -14,6 +14,10 @@ routes.get('/instructors/create', (req, res) => {
     return res.render("instructors/create")
 })
 
+routes.post("/instructors", (req, res) => {
+    return res.send("RECEBIDO")
+})
+
 routes.get('/members', (req, res) => {
     return res.send("members")
 })
